@@ -1,4 +1,4 @@
-package Task06;
+package Task08;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -59,10 +59,14 @@ class Subject {
 }
 class Session {
     private Subject subject;
+    private LocalTime startTime;
+    private LocalTime endTime;
     private String location; // Add location attribute
 
-    public Session(Subject subject, String location) {
+    public Session(Subject subject, LocalTime startTime, LocalTime endTime, String location) {
         this.subject = subject;
+        this.startTime = startTime;
+        this.endTime = endTime;
         this.location = location;  // Initialize location
     }
 
@@ -74,17 +78,41 @@ class Session {
     public void setSubject(Subject subject) {
         this.subject = subject;
     }
+
+    public LocalTime getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(LocalTime startTime) {
+        this.startTime = startTime;
+    }
+
+    public LocalTime getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(LocalTime endTime) {
+        this.endTime = endTime;
+    }
+
+
     public String getLocation() {
         return location;
     }
+
     public void setLocation(String location) {
         this.location = location;
     }
+
+
+
 
     @Override
     public String toString() {
         return "Session{" +
                 subject +
+                ", startTime= " + startTime +
+                ", endTime= " + endTime +
                 ", location='" + location + '\'' +
                 '}';
     }
@@ -95,12 +123,12 @@ class Session {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Session session = (Session) o;
-        return Objects.equals(subject, session.subject)  && Objects.equals(location, session.location);
+        return Objects.equals(subject, session.subject) && Objects.equals(startTime, session.startTime) && Objects.equals(endTime, session.endTime) && Objects.equals(location, session.location);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(subject, location);
+        return Objects.hash(subject, startTime, endTime, location);
     }
 }
 
@@ -168,14 +196,30 @@ class Session {
                  if (sessionSubject == null) {
                  System.out.println("Subject not found. Please add the subject first.");
     } else {
+    System.out.print("Enter start time (HH:MM): ");
+    String startTimeStr = scanner.nextLine();
+    System.out.print("Enter end time (HH:MM): ");
+    String endTimeStr = scanner.nextLine();
     System.out.print("Enter Location: ");
     String location = scanner.nextLine();
 
+    try {
+        LocalTime startTime = LocalTime.parse(startTimeStr);
+        LocalTime endTime = LocalTime.parse(endTimeStr);
+
+        // Validate that end time is after start time (optional)
+        if (endTime.isBefore(startTime)) {
+            System.out.println("End time cannot be before start time.");
+            break; // Exit the case if invalid input
+        }
 
         // Create and add the session
-        Session newSession = new Session(sessionSubject, location);
+        Session newSession = new Session(sessionSubject, startTime, endTime, location);
         sessions.add(newSession);
         System.out.println("Session added successfully!");
+    } catch (DateTimeParseException e) {
+        System.out.println("Invalid time format. Please use HH:MM.");
+    }
 }
 break;
             case 4:  
