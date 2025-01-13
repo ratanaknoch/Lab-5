@@ -1,4 +1,11 @@
-
+/*
+ * Ttile: Create class named "Session" represents study sessions of the day. Add attributes follow best practices and naming conventions.
+ * It contains information about the subject and location.
+ * 
+ * version 1.0
+ * author: Nai Eang Srun 
+ * date: 2025-01-13
+ */
 package Task06;
 
 import java.util.ArrayList;
