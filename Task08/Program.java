@@ -1,3 +1,14 @@
+/*
+ * Ttile: dd method setDuration(startTime, endTime) to change session time. 
+ * This method will throw exception when startTime is bigger or equals to endTime. 
+ * Both startTime and endTime are in integer (ex: startTime: 13, endTime: 14).
+ * 
+ * It contains information about the subject, location, start time, and end time.
+ * 
+ * version 1.0
+ * author: Nai Eang Srun 
+ * date: 2025-01-13
+ */
 package Task08;
 
 import java.util.ArrayList;
