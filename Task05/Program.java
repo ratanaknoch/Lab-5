@@ -1,11 +1,11 @@
- /**
- * The Subject class represents a course in the Year 2 program.
- * It contains information about the subject name, subject code, and credit hours.
- * 
- * @author Nai Eang Srun
- * @version 1.1
- * @since 2025-01-13
- */
+/**
+* The Subject class represents a course in the Year 2 program.
+* It contains information about the subject name, subject code, and credit hours.
+* 
+* @author Nai Eang Srun & Ratanak Noch Munny
+* @version 1.1
+* @since 2025-01-13
+*/
 
 package Task05;
 
