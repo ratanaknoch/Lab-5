@@ -6,7 +6,7 @@
  * It contains information about the subject, location, start time, and end time.
  * 
  * version 1.0
- * author: Nai Eang Srun 
+ * author: Nai Eang Srun & Ratanak Noch Munny
  * date: 2025-01-13
  */
 package Task08;
